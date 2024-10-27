@@ -1,0 +1,946 @@
+EncDecCTCModel(
+  (preprocessor): AudioToMelSpectrogramPreprocessor(
+    (featurizer): FilterbankFeatures()
+  )
+  (encoder): ConvASREncoder(
+    (encoder): Sequential(
+      (0): JasperBlock(
+        (mconv): ModuleList(
+          (0): MaskedConv1d(
+            (conv): Conv1d(64, 64, kernel_size=(33,), stride=(2,), padding=(16,), groups=64, bias=False)
+          )
+          (1): MaskedConv1d(
+            (conv): Conv1d(64, 256, kernel_size=(1,), stride=(1,), bias=False)
+          )
+          (2): BatchNorm1d(256, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (mout): Sequential(
+          (0): ReLU(inplace=True)
+          (1): Dropout(p=0.0, inplace=False)
+        )
+      )
+      (1): JasperBlock(
+        (mconv): ModuleList(
+          (0): MaskedConv1d(
+            (conv): Conv1d(256, 256, kernel_size=(33,), stride=(1,), padding=(16,), groups=256, bias=False)
+          )
+          (1): MaskedConv1d(
+            (conv): Conv1d(256, 256, kernel_size=(1,), stride=(1,), bias=False)
+          )
+          (2): BatchNorm1d(256, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+          (3): ReLU(inplace=True)
+          (4): Dropout(p=0.0, inplace=False)
+          (5): MaskedConv1d(
+            (conv): Conv1d(256, 256, kernel_size=(33,), stride=(1,), padding=(16,), groups=256, bias=False)
+          )
+          (6): MaskedConv1d(
+            (conv): Conv1d(256, 256, kernel_size=(1,), stride=(1,), bias=False)
+          )
+          (7): BatchNorm1d(256, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+          (8): ReLU(inplace=True)
+          (9): Dropout(p=0.0, inplace=False)
+          (10): MaskedConv1d(
+            (conv): Conv1d(256, 256, kernel_size=(33,), stride=(1,), padding=(16,), groups=256, bias=False)
+          )
+          (11): MaskedConv1d(
+            (conv): Conv1d(256, 256, kernel_size=(1,), stride=(1,), bias=False)
+          )
+          (12): BatchNorm1d(256, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+          (13): ReLU(inplace=True)
+          (14): Dropout(p=0.0, inplace=False)
+          (15): MaskedConv1d(
+            (conv): Conv1d(256, 256, kernel_size=(33,), stride=(1,), padding=(16,), groups=256, bias=False)
+          )
+          (16): MaskedConv1d(
+            (conv): Conv1d(256, 256, kernel_size=(1,), stride=(1,), bias=False)
+          )
+          (17): BatchNorm1d(256, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+          (18): ReLU(inplace=True)
+          (19): Dropout(p=0.0, inplace=False)
+          (20): MaskedConv1d(
+            (conv): Conv1d(256, 256, kernel_size=(33,), stride=(1,), padding=(16,), groups=256, bias=False)
+          )
+          (21): MaskedConv1d(
+            (conv): Conv1d(256, 256, kernel_size=(1,), stride=(1,), bias=False)
+          )
+          (22): BatchNorm1d(256, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (res): ModuleList(
+          (0): ModuleList(
+            (0): MaskedConv1d(
+              (conv): Conv1d(256, 256, kernel_size=(1,), stride=(1,), bias=False)
+            )
+            (1): BatchNorm1d(256, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+          )
+        )
+        (mout): Sequential(
+          (0): ReLU(inplace=True)
+          (1): Dropout(p=0.0, inplace=False)
+        )
+      )
+      (2): JasperBlock(
+        (mconv): ModuleList(
+          (0): MaskedConv1d(
+            (conv): Conv1d(256, 256, kernel_size=(33,), stride=(1,), padding=(16,), groups=256, bias=False)
+          )
+          (1): MaskedConv1d(
+            (conv): Conv1d(256, 256, kernel_size=(1,), stride=(1,), bias=False)
+          )
+          (2): BatchNorm1d(256, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+          (3): ReLU(inplace=True)
+          (4): Dropout(p=0.0, inplace=False)
+          (5): MaskedConv1d(
+            (conv): Conv1d(256, 256, kernel_size=(33,), stride=(1,), padding=(16,), groups=256, bias=False)
+          )
+          (6): MaskedConv1d(
+            (conv): Conv1d(256, 256, kernel_size=(1,), stride=(1,), bias=False)
+          )
+          (7): BatchNorm1d(256, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+          (8): ReLU(inplace=True)
+          (9): Dropout(p=0.0, inplace=False)
+          (10): MaskedConv1d(
+            (conv): Conv1d(256, 256, kernel_size=(33,), stride=(1,), padding=(16,), groups=256, bias=False)
+          )
+          (11): MaskedConv1d(
+            (conv): Conv1d(256, 256, kernel_size=(1,), stride=(1,), bias=False)
+          )
+          (12): BatchNorm1d(256, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+          (13): ReLU(inplace=True)
+          (14): Dropout(p=0.0, inplace=False)
+          (15): MaskedConv1d(
+            (conv): Conv1d(256, 256, kernel_size=(33,), stride=(1,), padding=(16,), groups=256, bias=False)
+          )
+          (16): MaskedConv1d(
+            (conv): Conv1d(256, 256, kernel_size=(1,), stride=(1,), bias=False)
+          )
+          (17): BatchNorm1d(256, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+          (18): ReLU(inplace=True)
+          (19): Dropout(p=0.0, inplace=False)
+          (20): MaskedConv1d(
+            (conv): Conv1d(256, 256, kernel_size=(33,), stride=(1,), padding=(16,), groups=256, bias=False)
+          )
+          (21): MaskedConv1d(
+            (conv): Conv1d(256, 256, kernel_size=(1,), stride=(1,), bias=False)
+          )
+          (22): BatchNorm1d(256, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (res): ModuleList(
+          (0): ModuleList(
+            (0): MaskedConv1d(
+              (conv): Conv1d(256, 256, kernel_size=(1,), stride=(1,), bias=False)
+            )
+            (1): BatchNorm1d(256, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+          )
+        )
+        (mout): Sequential(
+          (0): ReLU(inplace=True)
+          (1): Dropout(p=0.0, inplace=False)
+        )
+      )
+      (3): JasperBlock(
+        (mconv): ModuleList(
+          (0): MaskedConv1d(
+            (conv): Conv1d(256, 256, kernel_size=(33,), stride=(1,), padding=(16,), groups=256, bias=False)
+          )
+          (1): MaskedConv1d(
+            (conv): Conv1d(256, 256, kernel_size=(1,), stride=(1,), bias=False)
+          )
+          (2): BatchNorm1d(256, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+          (3): ReLU(inplace=True)
+          (4): Dropout(p=0.0, inplace=False)
+          (5): MaskedConv1d(
+            (conv): Conv1d(256, 256, kernel_size=(33,), stride=(1,), padding=(16,), groups=256, bias=False)
+          )
+          (6): MaskedConv1d(
+            (conv): Conv1d(256, 256, kernel_size=(1,), stride=(1,), bias=False)
+          )
+          (7): BatchNorm1d(256, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+          (8): ReLU(inplace=True)
+          (9): Dropout(p=0.0, inplace=False)
+          (10): MaskedConv1d(
+            (conv): Conv1d(256, 256, kernel_size=(33,), stride=(1,), padding=(16,), groups=256, bias=False)
+          )
+          (11): MaskedConv1d(
+            (conv): Conv1d(256, 256, kernel_size=(1,), stride=(1,), bias=False)
+          )
+          (12): BatchNorm1d(256, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+          (13): ReLU(inplace=True)
+          (14): Dropout(p=0.0, inplace=False)
+          (15): MaskedConv1d(
+            (conv): Conv1d(256, 256, kernel_size=(33,), stride=(1,), padding=(16,), groups=256, bias=False)
+          )
+          (16): MaskedConv1d(
+            (conv): Conv1d(256, 256, kernel_size=(1,), stride=(1,), bias=False)
+          )
+          (17): BatchNorm1d(256, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+          (18): ReLU(inplace=True)
+          (19): Dropout(p=0.0, inplace=False)
+          (20): MaskedConv1d(
+            (conv): Conv1d(256, 256, kernel_size=(33,), stride=(1,), padding=(16,), groups=256, bias=False)
+          )
+          (21): MaskedConv1d(
+            (conv): Conv1d(256, 256, kernel_size=(1,), stride=(1,), bias=False)
+          )
+          (22): BatchNorm1d(256, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (res): ModuleList(
+          (0): ModuleList(
+            (0): MaskedConv1d(
+              (conv): Conv1d(256, 256, kernel_size=(1,), stride=(1,), bias=False)
+            )
+            (1): BatchNorm1d(256, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+          )
+        )
+        (mout): Sequential(
+          (0): ReLU(inplace=True)
+          (1): Dropout(p=0.0, inplace=False)
+        )
+      )
+      (4): JasperBlock(
+        (mconv): ModuleList(
+          (0): MaskedConv1d(
+            (conv): Conv1d(256, 256, kernel_size=(39,), stride=(1,), padding=(19,), groups=256, bias=False)
+          )
+          (1): MaskedConv1d(
+            (conv): Conv1d(256, 256, kernel_size=(1,), stride=(1,), bias=False)
+          )
+          (2): BatchNorm1d(256, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+          (3): ReLU(inplace=True)
+          (4): Dropout(p=0.0, inplace=False)
+          (5): MaskedConv1d(
+            (conv): Conv1d(256, 256, kernel_size=(39,), stride=(1,), padding=(19,), groups=256, bias=False)
+          )
+          (6): MaskedConv1d(
+            (conv): Conv1d(256, 256, kernel_size=(1,), stride=(1,), bias=False)
+          )
+          (7): BatchNorm1d(256, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+          (8): ReLU(inplace=True)
+          (9): Dropout(p=0.0, inplace=False)
+          (10): MaskedConv1d(
+            (conv): Conv1d(256, 256, kernel_size=(39,), stride=(1,), padding=(19,), groups=256, bias=False)
+          )
+          (11): MaskedConv1d(
+            (conv): Conv1d(256, 256, kernel_size=(1,), stride=(1,), bias=False)
+          )
+          (12): BatchNorm1d(256, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+          (13): ReLU(inplace=True)
+          (14): Dropout(p=0.0, inplace=False)
+          (15): MaskedConv1d(
+            (conv): Conv1d(256, 256, kernel_size=(39,), stride=(1,), padding=(19,), groups=256, bias=False)
+          )
+          (16): MaskedConv1d(
+            (conv): Conv1d(256, 256, kernel_size=(1,), stride=(1,), bias=False)
+          )
+          (17): BatchNorm1d(256, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+          (18): ReLU(inplace=True)
+          (19): Dropout(p=0.0, inplace=False)
+          (20): MaskedConv1d(
+            (conv): Conv1d(256, 256, kernel_size=(39,), stride=(1,), padding=(19,), groups=256, bias=False)
+          )
+          (21): MaskedConv1d(
+            (conv): Conv1d(256, 256, kernel_size=(1,), stride=(1,), bias=False)
+          )
+          (22): BatchNorm1d(256, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (res): ModuleList(
+          (0): ModuleList(
+            (0): MaskedConv1d(
+              (conv): Conv1d(256, 256, kernel_size=(1,), stride=(1,), bias=False)
+            )
+            (1): BatchNorm1d(256, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+          )
+        )
+        (mout): Sequential(
+          (0): ReLU(inplace=True)
+          (1): Dropout(p=0.0, inplace=False)
+        )
+      )
+      (5): JasperBlock(
+        (mconv): ModuleList(
+          (0): MaskedConv1d(
+            (conv): Conv1d(256, 256, kernel_size=(39,), stride=(1,), padding=(19,), groups=256, bias=False)
+          )
+          (1): MaskedConv1d(
+            (conv): Conv1d(256, 256, kernel_size=(1,), stride=(1,), bias=False)
+          )
+          (2): BatchNorm1d(256, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+          (3): ReLU(inplace=True)
+          (4): Dropout(p=0.0, inplace=False)
+          (5): MaskedConv1d(
+            (conv): Conv1d(256, 256, kernel_size=(39,), stride=(1,), padding=(19,), groups=256, bias=False)
+          )
+          (6): MaskedConv1d(
+            (conv): Conv1d(256, 256, kernel_size=(1,), stride=(1,), bias=False)
+          )
+          (7): BatchNorm1d(256, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+          (8): ReLU(inplace=True)
+          (9): Dropout(p=0.0, inplace=False)
+          (10): MaskedConv1d(
+            (conv): Conv1d(256, 256, kernel_size=(39,), stride=(1,), padding=(19,), groups=256, bias=False)
+          )
+          (11): MaskedConv1d(
+            (conv): Conv1d(256, 256, kernel_size=(1,), stride=(1,), bias=False)
+          )
+          (12): BatchNorm1d(256, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+          (13): ReLU(inplace=True)
+          (14): Dropout(p=0.0, inplace=False)
+          (15): MaskedConv1d(
+            (conv): Conv1d(256, 256, kernel_size=(39,), stride=(1,), padding=(19,), groups=256, bias=False)
+          )
+          (16): MaskedConv1d(
+            (conv): Conv1d(256, 256, kernel_size=(1,), stride=(1,), bias=False)
+          )
+          (17): BatchNorm1d(256, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+          (18): ReLU(inplace=True)
+          (19): Dropout(p=0.0, inplace=False)
+          (20): MaskedConv1d(
+            (conv): Conv1d(256, 256, kernel_size=(39,), stride=(1,), padding=(19,), groups=256, bias=False)
+          )
+          (21): MaskedConv1d(
+            (conv): Conv1d(256, 256, kernel_size=(1,), stride=(1,), bias=False)
+          )
+          (22): BatchNorm1d(256, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (res): ModuleList(
+          (0): ModuleList(
+            (0): MaskedConv1d(
+              (conv): Conv1d(256, 256, kernel_size=(1,), stride=(1,), bias=False)
+            )
+            (1): BatchNorm1d(256, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+          )
+        )
+        (mout): Sequential(
+          (0): ReLU(inplace=True)
+          (1): Dropout(p=0.0, inplace=False)
+        )
+      )
+      (6): JasperBlock(
+        (mconv): ModuleList(
+          (0): MaskedConv1d(
+            (conv): Conv1d(256, 256, kernel_size=(39,), stride=(1,), padding=(19,), groups=256, bias=False)
+          )
+          (1): MaskedConv1d(
+            (conv): Conv1d(256, 256, kernel_size=(1,), stride=(1,), bias=False)
+          )
+          (2): BatchNorm1d(256, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+          (3): ReLU(inplace=True)
+          (4): Dropout(p=0.0, inplace=False)
+          (5): MaskedConv1d(
+            (conv): Conv1d(256, 256, kernel_size=(39,), stride=(1,), padding=(19,), groups=256, bias=False)
+          )
+          (6): MaskedConv1d(
+            (conv): Conv1d(256, 256, kernel_size=(1,), stride=(1,), bias=False)
+          )
+          (7): BatchNorm1d(256, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+          (8): ReLU(inplace=True)
+          (9): Dropout(p=0.0, inplace=False)
+          (10): MaskedConv1d(
+            (conv): Conv1d(256, 256, kernel_size=(39,), stride=(1,), padding=(19,), groups=256, bias=False)
+          )
+          (11): MaskedConv1d(
+            (conv): Conv1d(256, 256, kernel_size=(1,), stride=(1,), bias=False)
+          )
+          (12): BatchNorm1d(256, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+          (13): ReLU(inplace=True)
+          (14): Dropout(p=0.0, inplace=False)
+          (15): MaskedConv1d(
+            (conv): Conv1d(256, 256, kernel_size=(39,), stride=(1,), padding=(19,), groups=256, bias=False)
+          )
+          (16): MaskedConv1d(
+            (conv): Conv1d(256, 256, kernel_size=(1,), stride=(1,), bias=False)
+          )
+          (17): BatchNorm1d(256, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+          (18): ReLU(inplace=True)
+          (19): Dropout(p=0.0, inplace=False)
+          (20): MaskedConv1d(
+            (conv): Conv1d(256, 256, kernel_size=(39,), stride=(1,), padding=(19,), groups=256, bias=False)
+          )
+          (21): MaskedConv1d(
+            (conv): Conv1d(256, 256, kernel_size=(1,), stride=(1,), bias=False)
+          )
+          (22): BatchNorm1d(256, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (res): ModuleList(
+          (0): ModuleList(
+            (0): MaskedConv1d(
+              (conv): Conv1d(256, 256, kernel_size=(1,), stride=(1,), bias=False)
+            )
+            (1): BatchNorm1d(256, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+          )
+        )
+        (mout): Sequential(
+          (0): ReLU(inplace=True)
+          (1): Dropout(p=0.0, inplace=False)
+        )
+      )
+      (7): JasperBlock(
+        (mconv): ModuleList(
+          (0): MaskedConv1d(
+            (conv): Conv1d(256, 256, kernel_size=(51,), stride=(1,), padding=(25,), groups=256, bias=False)
+          )
+          (1): MaskedConv1d(
+            (conv): Conv1d(256, 512, kernel_size=(1,), stride=(1,), bias=False)
+          )
+          (2): BatchNorm1d(512, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+          (3): ReLU(inplace=True)
+          (4): Dropout(p=0.0, inplace=False)
+          (5): MaskedConv1d(
+            (conv): Conv1d(512, 512, kernel_size=(51,), stride=(1,), padding=(25,), groups=512, bias=False)
+          )
+          (6): MaskedConv1d(
+            (conv): Conv1d(512, 512, kernel_size=(1,), stride=(1,), bias=False)
+          )
+          (7): BatchNorm1d(512, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+          (8): ReLU(inplace=True)
+          (9): Dropout(p=0.0, inplace=False)
+          (10): MaskedConv1d(
+            (conv): Conv1d(512, 512, kernel_size=(51,), stride=(1,), padding=(25,), groups=512, bias=False)
+          )
+          (11): MaskedConv1d(
+            (conv): Conv1d(512, 512, kernel_size=(1,), stride=(1,), bias=False)
+          )
+          (12): BatchNorm1d(512, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+          (13): ReLU(inplace=True)
+          (14): Dropout(p=0.0, inplace=False)
+          (15): MaskedConv1d(
+            (conv): Conv1d(512, 512, kernel_size=(51,), stride=(1,), padding=(25,), groups=512, bias=False)
+          )
+          (16): MaskedConv1d(
+            (conv): Conv1d(512, 512, kernel_size=(1,), stride=(1,), bias=False)
+          )
+          (17): BatchNorm1d(512, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+          (18): ReLU(inplace=True)
+          (19): Dropout(p=0.0, inplace=False)
+          (20): MaskedConv1d(
+            (conv): Conv1d(512, 512, kernel_size=(51,), stride=(1,), padding=(25,), groups=512, bias=False)
+          )
+          (21): MaskedConv1d(
+            (conv): Conv1d(512, 512, kernel_size=(1,), stride=(1,), bias=False)
+          )
+          (22): BatchNorm1d(512, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (res): ModuleList(
+          (0): ModuleList(
+            (0): MaskedConv1d(
+              (conv): Conv1d(256, 512, kernel_size=(1,), stride=(1,), bias=False)
+            )
+            (1): BatchNorm1d(512, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+          )
+        )
+        (mout): Sequential(
+          (0): ReLU(inplace=True)
+          (1): Dropout(p=0.0, inplace=False)
+        )
+      )
+      (8): JasperBlock(
+        (mconv): ModuleList(
+          (0): MaskedConv1d(
+            (conv): Conv1d(512, 512, kernel_size=(51,), stride=(1,), padding=(25,), groups=512, bias=False)
+          )
+          (1): MaskedConv1d(
+            (conv): Conv1d(512, 512, kernel_size=(1,), stride=(1,), bias=False)
+          )
+          (2): BatchNorm1d(512, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+          (3): ReLU(inplace=True)
+          (4): Dropout(p=0.0, inplace=False)
+          (5): MaskedConv1d(
+            (conv): Conv1d(512, 512, kernel_size=(51,), stride=(1,), padding=(25,), groups=512, bias=False)
+          )
+          (6): MaskedConv1d(
+            (conv): Conv1d(512, 512, kernel_size=(1,), stride=(1,), bias=False)
+          )
+          (7): BatchNorm1d(512, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+          (8): ReLU(inplace=True)
+          (9): Dropout(p=0.0, inplace=False)
+          (10): MaskedConv1d(
+            (conv): Conv1d(512, 512, kernel_size=(51,), stride=(1,), padding=(25,), groups=512, bias=False)
+          )
+          (11): MaskedConv1d(
+            (conv): Conv1d(512, 512, kernel_size=(1,), stride=(1,), bias=False)
+          )
+          (12): BatchNorm1d(512, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+          (13): ReLU(inplace=True)
+          (14): Dropout(p=0.0, inplace=False)
+          (15): MaskedConv1d(
+            (conv): Conv1d(512, 512, kernel_size=(51,), stride=(1,), padding=(25,), groups=512, bias=False)
+          )
+          (16): MaskedConv1d(
+            (conv): Conv1d(512, 512, kernel_size=(1,), stride=(1,), bias=False)
+          )
+          (17): BatchNorm1d(512, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+          (18): ReLU(inplace=True)
+          (19): Dropout(p=0.0, inplace=False)
+          (20): MaskedConv1d(
+            (conv): Conv1d(512, 512, kernel_size=(51,), stride=(1,), padding=(25,), groups=512, bias=False)
+          )
+          (21): MaskedConv1d(
+            (conv): Conv1d(512, 512, kernel_size=(1,), stride=(1,), bias=False)
+          )
+          (22): BatchNorm1d(512, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (res): ModuleList(
+          (0): ModuleList(
+            (0): MaskedConv1d(
+              (conv): Conv1d(512, 512, kernel_size=(1,), stride=(1,), bias=False)
+            )
+            (1): BatchNorm1d(512, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+          )
+        )
+        (mout): Sequential(
+          (0): ReLU(inplace=True)
+          (1): Dropout(p=0.0, inplace=False)
+        )
+      )
+      (9): JasperBlock(
+        (mconv): ModuleList(
+          (0): MaskedConv1d(
+            (conv): Conv1d(512, 512, kernel_size=(51,), stride=(1,), padding=(25,), groups=512, bias=False)
+          )
+          (1): MaskedConv1d(
+            (conv): Conv1d(512, 512, kernel_size=(1,), stride=(1,), bias=False)
+          )
+          (2): BatchNorm1d(512, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+          (3): ReLU(inplace=True)
+          (4): Dropout(p=0.0, inplace=False)
+          (5): MaskedConv1d(
+            (conv): Conv1d(512, 512, kernel_size=(51,), stride=(1,), padding=(25,), groups=512, bias=False)
+          )
+          (6): MaskedConv1d(
+            (conv): Conv1d(512, 512, kernel_size=(1,), stride=(1,), bias=False)
+          )
+          (7): BatchNorm1d(512, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+          (8): ReLU(inplace=True)
+          (9): Dropout(p=0.0, inplace=False)
+          (10): MaskedConv1d(
+            (conv): Conv1d(512, 512, kernel_size=(51,), stride=(1,), padding=(25,), groups=512, bias=False)
+          )
+          (11): MaskedConv1d(
+            (conv): Conv1d(512, 512, kernel_size=(1,), stride=(1,), bias=False)
+          )
+          (12): BatchNorm1d(512, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+          (13): ReLU(inplace=True)
+          (14): Dropout(p=0.0, inplace=False)
+          (15): MaskedConv1d(
+            (conv): Conv1d(512, 512, kernel_size=(51,), stride=(1,), padding=(25,), groups=512, bias=False)
+          )
+          (16): MaskedConv1d(
+            (conv): Conv1d(512, 512, kernel_size=(1,), stride=(1,), bias=False)
+          )
+          (17): BatchNorm1d(512, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+          (18): ReLU(inplace=True)
+          (19): Dropout(p=0.0, inplace=False)
+          (20): MaskedConv1d(
+            (conv): Conv1d(512, 512, kernel_size=(51,), stride=(1,), padding=(25,), groups=512, bias=False)
+          )
+          (21): MaskedConv1d(
+            (conv): Conv1d(512, 512, kernel_size=(1,), stride=(1,), bias=False)
+          )
+          (22): BatchNorm1d(512, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (res): ModuleList(
+          (0): ModuleList(
+            (0): MaskedConv1d(
+              (conv): Conv1d(512, 512, kernel_size=(1,), stride=(1,), bias=False)
+            )
+            (1): BatchNorm1d(512, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+          )
+        )
+        (mout): Sequential(
+          (0): ReLU(inplace=True)
+          (1): Dropout(p=0.0, inplace=False)
+        )
+      )
+      (10): JasperBlock(
+        (mconv): ModuleList(
+          (0): MaskedConv1d(
+            (conv): Conv1d(512, 512, kernel_size=(63,), stride=(1,), padding=(31,), groups=512, bias=False)
+          )
+          (1): MaskedConv1d(
+            (conv): Conv1d(512, 512, kernel_size=(1,), stride=(1,), bias=False)
+          )
+          (2): BatchNorm1d(512, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+          (3): ReLU(inplace=True)
+          (4): Dropout(p=0.0, inplace=False)
+          (5): MaskedConv1d(
+            (conv): Conv1d(512, 512, kernel_size=(63,), stride=(1,), padding=(31,), groups=512, bias=False)
+          )
+          (6): MaskedConv1d(
+            (conv): Conv1d(512, 512, kernel_size=(1,), stride=(1,), bias=False)
+          )
+          (7): BatchNorm1d(512, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+          (8): ReLU(inplace=True)
+          (9): Dropout(p=0.0, inplace=False)
+          (10): MaskedConv1d(
+            (conv): Conv1d(512, 512, kernel_size=(63,), stride=(1,), padding=(31,), groups=512, bias=False)
+          )
+          (11): MaskedConv1d(
+            (conv): Conv1d(512, 512, kernel_size=(1,), stride=(1,), bias=False)
+          )
+          (12): BatchNorm1d(512, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+          (13): ReLU(inplace=True)
+          (14): Dropout(p=0.0, inplace=False)
+          (15): MaskedConv1d(
+            (conv): Conv1d(512, 512, kernel_size=(63,), stride=(1,), padding=(31,), groups=512, bias=False)
+          )
+          (16): MaskedConv1d(
+            (conv): Conv1d(512, 512, kernel_size=(1,), stride=(1,), bias=False)
+          )
+          (17): BatchNorm1d(512, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+          (18): ReLU(inplace=True)
+          (19): Dropout(p=0.0, inplace=False)
+          (20): MaskedConv1d(
+            (conv): Conv1d(512, 512, kernel_size=(63,), stride=(1,), padding=(31,), groups=512, bias=False)
+          )
+          (21): MaskedConv1d(
+            (conv): Conv1d(512, 512, kernel_size=(1,), stride=(1,), bias=False)
+          )
+          (22): BatchNorm1d(512, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (res): ModuleList(
+          (0): ModuleList(
+            (0): MaskedConv1d(
+              (conv): Conv1d(512, 512, kernel_size=(1,), stride=(1,), bias=False)
+            )
+            (1): BatchNorm1d(512, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+          )
+        )
+        (mout): Sequential(
+          (0): ReLU(inplace=True)
+          (1): Dropout(p=0.0, inplace=False)
+        )
+      )
+      (11): JasperBlock(
+        (mconv): ModuleList(
+          (0): MaskedConv1d(
+            (conv): Conv1d(512, 512, kernel_size=(63,), stride=(1,), padding=(31,), groups=512, bias=False)
+          )
+          (1): MaskedConv1d(
+            (conv): Conv1d(512, 512, kernel_size=(1,), stride=(1,), bias=False)
+          )
+          (2): BatchNorm1d(512, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+          (3): ReLU(inplace=True)
+          (4): Dropout(p=0.0, inplace=False)
+          (5): MaskedConv1d(
+            (conv): Conv1d(512, 512, kernel_size=(63,), stride=(1,), padding=(31,), groups=512, bias=False)
+          )
+          (6): MaskedConv1d(
+            (conv): Conv1d(512, 512, kernel_size=(1,), stride=(1,), bias=False)
+          )
+          (7): BatchNorm1d(512, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+          (8): ReLU(inplace=True)
+          (9): Dropout(p=0.0, inplace=False)
+          (10): MaskedConv1d(
+            (conv): Conv1d(512, 512, kernel_size=(63,), stride=(1,), padding=(31,), groups=512, bias=False)
+          )
+          (11): MaskedConv1d(
+            (conv): Conv1d(512, 512, kernel_size=(1,), stride=(1,), bias=False)
+          )
+          (12): BatchNorm1d(512, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+          (13): ReLU(inplace=True)
+          (14): Dropout(p=0.0, inplace=False)
+          (15): MaskedConv1d(
+            (conv): Conv1d(512, 512, kernel_size=(63,), stride=(1,), padding=(31,), groups=512, bias=False)
+          )
+          (16): MaskedConv1d(
+            (conv): Conv1d(512, 512, kernel_size=(1,), stride=(1,), bias=False)
+          )
+          (17): BatchNorm1d(512, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+          (18): ReLU(inplace=True)
+          (19): Dropout(p=0.0, inplace=False)
+          (20): MaskedConv1d(
+            (conv): Conv1d(512, 512, kernel_size=(63,), stride=(1,), padding=(31,), groups=512, bias=False)
+          )
+          (21): MaskedConv1d(
+            (conv): Conv1d(512, 512, kernel_size=(1,), stride=(1,), bias=False)
+          )
+          (22): BatchNorm1d(512, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (res): ModuleList(
+          (0): ModuleList(
+            (0): MaskedConv1d(
+              (conv): Conv1d(512, 512, kernel_size=(1,), stride=(1,), bias=False)
+            )
+            (1): BatchNorm1d(512, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+          )
+        )
+        (mout): Sequential(
+          (0): ReLU(inplace=True)
+          (1): Dropout(p=0.0, inplace=False)
+        )
+      )
+      (12): JasperBlock(
+        (mconv): ModuleList(
+          (0): MaskedConv1d(
+            (conv): Conv1d(512, 512, kernel_size=(63,), stride=(1,), padding=(31,), groups=512, bias=False)
+          )
+          (1): MaskedConv1d(
+            (conv): Conv1d(512, 512, kernel_size=(1,), stride=(1,), bias=False)
+          )
+          (2): BatchNorm1d(512, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+          (3): ReLU(inplace=True)
+          (4): Dropout(p=0.0, inplace=False)
+          (5): MaskedConv1d(
+            (conv): Conv1d(512, 512, kernel_size=(63,), stride=(1,), padding=(31,), groups=512, bias=False)
+          )
+          (6): MaskedConv1d(
+            (conv): Conv1d(512, 512, kernel_size=(1,), stride=(1,), bias=False)
+          )
+          (7): BatchNorm1d(512, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+          (8): ReLU(inplace=True)
+          (9): Dropout(p=0.0, inplace=False)
+          (10): MaskedConv1d(
+            (conv): Conv1d(512, 512, kernel_size=(63,), stride=(1,), padding=(31,), groups=512, bias=False)
+          )
+          (11): MaskedConv1d(
+            (conv): Conv1d(512, 512, kernel_size=(1,), stride=(1,), bias=False)
+          )
+          (12): BatchNorm1d(512, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+          (13): ReLU(inplace=True)
+          (14): Dropout(p=0.0, inplace=False)
+          (15): MaskedConv1d(
+            (conv): Conv1d(512, 512, kernel_size=(63,), stride=(1,), padding=(31,), groups=512, bias=False)
+          )
+          (16): MaskedConv1d(
+            (conv): Conv1d(512, 512, kernel_size=(1,), stride=(1,), bias=False)
+          )
+          (17): BatchNorm1d(512, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+          (18): ReLU(inplace=True)
+          (19): Dropout(p=0.0, inplace=False)
+          (20): MaskedConv1d(
+            (conv): Conv1d(512, 512, kernel_size=(63,), stride=(1,), padding=(31,), groups=512, bias=False)
+          )
+          (21): MaskedConv1d(
+            (conv): Conv1d(512, 512, kernel_size=(1,), stride=(1,), bias=False)
+          )
+          (22): BatchNorm1d(512, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (res): ModuleList(
+          (0): ModuleList(
+            (0): MaskedConv1d(
+              (conv): Conv1d(512, 512, kernel_size=(1,), stride=(1,), bias=False)
+            )
+            (1): BatchNorm1d(512, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+          )
+        )
+        (mout): Sequential(
+          (0): ReLU(inplace=True)
+          (1): Dropout(p=0.0, inplace=False)
+        )
+      )
+      (13): JasperBlock(
+        (mconv): ModuleList(
+          (0): MaskedConv1d(
+            (conv): Conv1d(512, 512, kernel_size=(75,), stride=(1,), padding=(37,), groups=512, bias=False)
+          )
+          (1): MaskedConv1d(
+            (conv): Conv1d(512, 512, kernel_size=(1,), stride=(1,), bias=False)
+          )
+          (2): BatchNorm1d(512, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+          (3): ReLU(inplace=True)
+          (4): Dropout(p=0.0, inplace=False)
+          (5): MaskedConv1d(
+            (conv): Conv1d(512, 512, kernel_size=(75,), stride=(1,), padding=(37,), groups=512, bias=False)
+          )
+          (6): MaskedConv1d(
+            (conv): Conv1d(512, 512, kernel_size=(1,), stride=(1,), bias=False)
+          )
+          (7): BatchNorm1d(512, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+          (8): ReLU(inplace=True)
+          (9): Dropout(p=0.0, inplace=False)
+          (10): MaskedConv1d(
+            (conv): Conv1d(512, 512, kernel_size=(75,), stride=(1,), padding=(37,), groups=512, bias=False)
+          )
+          (11): MaskedConv1d(
+            (conv): Conv1d(512, 512, kernel_size=(1,), stride=(1,), bias=False)
+          )
+          (12): BatchNorm1d(512, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+          (13): ReLU(inplace=True)
+          (14): Dropout(p=0.0, inplace=False)
+          (15): MaskedConv1d(
+            (conv): Conv1d(512, 512, kernel_size=(75,), stride=(1,), padding=(37,), groups=512, bias=False)
+          )
+          (16): MaskedConv1d(
+            (conv): Conv1d(512, 512, kernel_size=(1,), stride=(1,), bias=False)
+          )
+          (17): BatchNorm1d(512, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+          (18): ReLU(inplace=True)
+          (19): Dropout(p=0.0, inplace=False)
+          (20): MaskedConv1d(
+            (conv): Conv1d(512, 512, kernel_size=(75,), stride=(1,), padding=(37,), groups=512, bias=False)
+          )
+          (21): MaskedConv1d(
+            (conv): Conv1d(512, 512, kernel_size=(1,), stride=(1,), bias=False)
+          )
+          (22): BatchNorm1d(512, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (res): ModuleList(
+          (0): ModuleList(
+            (0): MaskedConv1d(
+              (conv): Conv1d(512, 512, kernel_size=(1,), stride=(1,), bias=False)
+            )
+            (1): BatchNorm1d(512, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+          )
+        )
+        (mout): Sequential(
+          (0): ReLU(inplace=True)
+          (1): Dropout(p=0.0, inplace=False)
+        )
+      )
+      (14): JasperBlock(
+        (mconv): ModuleList(
+          (0): MaskedConv1d(
+            (conv): Conv1d(512, 512, kernel_size=(75,), stride=(1,), padding=(37,), groups=512, bias=False)
+          )
+          (1): MaskedConv1d(
+            (conv): Conv1d(512, 512, kernel_size=(1,), stride=(1,), bias=False)
+          )
+          (2): BatchNorm1d(512, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+          (3): ReLU(inplace=True)
+          (4): Dropout(p=0.0, inplace=False)
+          (5): MaskedConv1d(
+            (conv): Conv1d(512, 512, kernel_size=(75,), stride=(1,), padding=(37,), groups=512, bias=False)
+          )
+          (6): MaskedConv1d(
+            (conv): Conv1d(512, 512, kernel_size=(1,), stride=(1,), bias=False)
+          )
+          (7): BatchNorm1d(512, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+          (8): ReLU(inplace=True)
+          (9): Dropout(p=0.0, inplace=False)
+          (10): MaskedConv1d(
+            (conv): Conv1d(512, 512, kernel_size=(75,), stride=(1,), padding=(37,), groups=512, bias=False)
+          )
+          (11): MaskedConv1d(
+            (conv): Conv1d(512, 512, kernel_size=(1,), stride=(1,), bias=False)
+          )
+          (12): BatchNorm1d(512, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+          (13): ReLU(inplace=True)
+          (14): Dropout(p=0.0, inplace=False)
+          (15): MaskedConv1d(
+            (conv): Conv1d(512, 512, kernel_size=(75,), stride=(1,), padding=(37,), groups=512, bias=False)
+          )
+          (16): MaskedConv1d(
+            (conv): Conv1d(512, 512, kernel_size=(1,), stride=(1,), bias=False)
+          )
+          (17): BatchNorm1d(512, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+          (18): ReLU(inplace=True)
+          (19): Dropout(p=0.0, inplace=False)
+          (20): MaskedConv1d(
+            (conv): Conv1d(512, 512, kernel_size=(75,), stride=(1,), padding=(37,), groups=512, bias=False)
+          )
+          (21): MaskedConv1d(
+            (conv): Conv1d(512, 512, kernel_size=(1,), stride=(1,), bias=False)
+          )
+          (22): BatchNorm1d(512, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (res): ModuleList(
+          (0): ModuleList(
+            (0): MaskedConv1d(
+              (conv): Conv1d(512, 512, kernel_size=(1,), stride=(1,), bias=False)
+            )
+            (1): BatchNorm1d(512, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+          )
+        )
+        (mout): Sequential(
+          (0): ReLU(inplace=True)
+          (1): Dropout(p=0.0, inplace=False)
+        )
+      )
+      (15): JasperBlock(
+        (mconv): ModuleList(
+          (0): MaskedConv1d(
+            (conv): Conv1d(512, 512, kernel_size=(75,), stride=(1,), padding=(37,), groups=512, bias=False)
+          )
+          (1): MaskedConv1d(
+            (conv): Conv1d(512, 512, kernel_size=(1,), stride=(1,), bias=False)
+          )
+          (2): BatchNorm1d(512, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+          (3): ReLU(inplace=True)
+          (4): Dropout(p=0.0, inplace=False)
+          (5): MaskedConv1d(
+            (conv): Conv1d(512, 512, kernel_size=(75,), stride=(1,), padding=(37,), groups=512, bias=False)
+          )
+          (6): MaskedConv1d(
+            (conv): Conv1d(512, 512, kernel_size=(1,), stride=(1,), bias=False)
+          )
+          (7): BatchNorm1d(512, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+          (8): ReLU(inplace=True)
+          (9): Dropout(p=0.0, inplace=False)
+          (10): MaskedConv1d(
+            (conv): Conv1d(512, 512, kernel_size=(75,), stride=(1,), padding=(37,), groups=512, bias=False)
+          )
+          (11): MaskedConv1d(
+            (conv): Conv1d(512, 512, kernel_size=(1,), stride=(1,), bias=False)
+          )
+          (12): BatchNorm1d(512, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+          (13): ReLU(inplace=True)
+          (14): Dropout(p=0.0, inplace=False)
+          (15): MaskedConv1d(
+            (conv): Conv1d(512, 512, kernel_size=(75,), stride=(1,), padding=(37,), groups=512, bias=False)
+          )
+          (16): MaskedConv1d(
+            (conv): Conv1d(512, 512, kernel_size=(1,), stride=(1,), bias=False)
+          )
+          (17): BatchNorm1d(512, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+          (18): ReLU(inplace=True)
+          (19): Dropout(p=0.0, inplace=False)
+          (20): MaskedConv1d(
+            (conv): Conv1d(512, 512, kernel_size=(75,), stride=(1,), padding=(37,), groups=512, bias=False)
+          )
+          (21): MaskedConv1d(
+            (conv): Conv1d(512, 512, kernel_size=(1,), stride=(1,), bias=False)
+          )
+          (22): BatchNorm1d(512, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (res): ModuleList(
+          (0): ModuleList(
+            (0): MaskedConv1d(
+              (conv): Conv1d(512, 512, kernel_size=(1,), stride=(1,), bias=False)
+            )
+            (1): BatchNorm1d(512, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+          )
+        )
+        (mout): Sequential(
+          (0): ReLU(inplace=True)
+          (1): Dropout(p=0.0, inplace=False)
+        )
+      )
+      (16): JasperBlock(
+        (mconv): ModuleList(
+          (0): MaskedConv1d(
+            (conv): Conv1d(512, 512, kernel_size=(87,), stride=(1,), padding=(86,), dilation=(2,), groups=512, bias=False)
+          )
+          (1): MaskedConv1d(
+            (conv): Conv1d(512, 512, kernel_size=(1,), stride=(1,), bias=False)
+          )
+          (2): BatchNorm1d(512, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (mout): Sequential(
+          (0): ReLU(inplace=True)
+          (1): Dropout(p=0.0, inplace=False)
+        )
+      )
+      (17): JasperBlock(
+        (mconv): ModuleList(
+          (0): MaskedConv1d(
+            (conv): Conv1d(512, 1024, kernel_size=(1,), stride=(1,), bias=False)
+          )
+          (1): BatchNorm1d(1024, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (mout): Sequential(
+          (0): ReLU(inplace=True)
+          (1): Dropout(p=0.0, inplace=False)
+        )
+      )
+    )
+  )
+  (spec_augmentation): SpectrogramAugmentation(
+    (spec_cutout): SpecCutout()
+  )
+  (wer): WER()
+  (decoder): ConvASRDecoder(
+    (decoder_layers): Sequential(
+      (0): Conv1d(1024, 58, kernel_size=(1,), stride=(1,))
+    )
+  )
+  (loss): CTCLoss()
+)
